@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import FillColors from "./services/fillColors";
+const CANVAS_ID = "canvasId";
 
 function App() {
+
+  const onStart = () => {
+    const fillColors = new FillColors(CANVAS_ID, 256, 128, 1, 1);
+    fillColors.setRandomness(500, 0.30, 0.11, 0.59);
+    fillColors.setProccesses(10);
+    fillColors.fill();
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={onStart}>Start fill color</button>
+      <div style={{ margin: 50 }}>
+        <canvas id={CANVAS_ID} />
+      </div>
     </div>
   );
 }

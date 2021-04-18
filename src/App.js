@@ -12,6 +12,7 @@ function App() {
 
   return (
     <div className="App">
+      <h2>Welcome, please click the button below to start filling colors</h2>
       <button onClick={onStart}>Start fill color</button>
       <div style={{ margin: 50 }}>
         <canvas id={CANVAS_ID} />
